@@ -40,7 +40,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		LOGGER.debug("Inside loadUserByUsername() method");
 		Optional<User> user = userRepository.findByEmail(username);
 		LOGGER.info("User - " + user);
-		
+
 		if (user.get() == null) {
 			throw new UsernameNotFoundException("User is not exist");
 		} else if (!user.get().getActive()) {
@@ -48,7 +48,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		} else {
 			Long loggedInUserId = user.get().getId();
 			List<GrantedAuthority> authorities = user.get().getRoles().stream()
-					.map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
+					.flatMap(role -> role.getPermissions().stream()
+							.map(permission -> new SimpleGrantedAuthority(permission.getName())))
+					.collect(Collectors.toList());
 
 			// Here we have to write the logic to collect Roles and permission
 			List<Role> roleList = roleRepository.getRolesOfUserByUserId(loggedInUserId);
@@ -59,9 +61,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 					.collect(Collectors.toList());
 
 			LOGGER.info("User object created");
-			return new CustomLoginUserDTO(username, user.get().getPassword(), authorities,
-					loggedInUserId, username, userRoles, userPermissions);
+			return new CustomLoginUserDTO(username, user.get().getPassword(), authorities, loggedInUserId, username,
+					userRoles, userPermissions);
 		}
 	}
-
+	
 }

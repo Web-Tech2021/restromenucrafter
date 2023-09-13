@@ -42,7 +42,7 @@ public class LoginController {
 	@Autowired
 	private MailSenderUtil mailSenderUtil;
 
-	@GetMapping({ "/", "/login" })
+	@GetMapping("/login")
 	public String showLoginPage() {
 		return LVNConstants.LOGIN_PAGE;
 	}
