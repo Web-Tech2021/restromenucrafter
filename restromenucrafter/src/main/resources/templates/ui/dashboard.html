@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link rel="icon" type="image/png" sizes="16x16" th:href="@{/images/logo/logo.png}">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>[[${@environment.getProperty('login_title')} ? ${@environment.getProperty('login_title')} : 'Login']]</title>
+
+	<!-- Own CSS -->
+	<link rel="stylesheet" type="text/css" th:href="@{/css/global/global.css}">
+	
+	<!-- Third party JS -->
+	<script type="text/javascript"  th:src="@{/js/global/jquery-3.6.0.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/global/bootstrap.min.js}"></script>
+	
+	<!-- Own JS -->
+
+</head>
+
+<body>
+	
+</body>
+</html>
