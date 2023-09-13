@@ -25,14 +25,14 @@ public class SecurityUtil {
 	public static Boolean isGlobalAdmin(CustomLoginUserDTO loggedInUser) {
 		if (loggedInUser == null) {
 			loggedInUser = getCurrentUser();
-		} 
-		
+		}
+
 		List<String> loggedInUserPermissions = loggedInUser.getUserPermissions();
 
 		if (loggedInUserPermissions.contains(PermissionConstants.GLOBAL_ADMINISTRATION)) {
 			return true;
 		}
-		
+
 		return false;
 	}
 
@@ -47,10 +47,10 @@ public class SecurityUtil {
 				return permissions.contains(permission);
 			}
 		}
-		
+
 		return false;
 	}
-	
+
 	public static Boolean hasAllPermissions(String... permissions) {
 		CustomLoginUserDTO user = getCurrentUser();
 		if (user != null) {
@@ -62,10 +62,10 @@ public class SecurityUtil {
 				return permissionList.containsAll(Arrays.asList(permissions));
 			}
 		}
-		
+
 		return false;
 	}
-	
+
 	public static Boolean hasAnyPermission(String... permissions) {
 		CustomLoginUserDTO user = getCurrentUser();
 		if (user != null) {
@@ -74,14 +74,14 @@ public class SecurityUtil {
 			} else {
 				List<String> permissionList = user.getUserPermissions();
 
-				if(permissionList!=null && permissions.length>0) {
-					if(CollectionUtils.containsAny(permissionList, Arrays.asList(permissions))) {
+				if (permissionList != null && permissions.length > 0) {
+					if (CollectionUtils.containsAny(permissionList, Arrays.asList(permissions))) {
 						return true;
 					}
 				}
 			}
 		}
-		
+
 		return false;
 	}
 

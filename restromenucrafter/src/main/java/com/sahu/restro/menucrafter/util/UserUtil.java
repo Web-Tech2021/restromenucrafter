@@ -1,5 +1,6 @@
 package com.sahu.restro.menucrafter.util;
 
+import java.util.Date;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,8 @@ public class UserUtil {
 		user.setStatus(Status.ACTIVE);
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		user.setActive(true);
+		user.setCreatedAt(new Date());
+		user.setUpdatedAt(new Date());
 		return userService.save(user).getId();
 	}
 
