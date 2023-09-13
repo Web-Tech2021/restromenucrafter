@@ -29,8 +29,8 @@ public class UserController {
 
 	@GetMapping("/dashboard")
 	public String showDashBoardPage() {
-		//CustomUserDetailsDTO loggedInUserDetails = SecurityUtil.getCurrentUser();
-		//LOGGER.info("Roles - " + loggedInUserDetails.getUserRoles());
+		// CustomUserDetailsDTO loggedInUserDetails = SecurityUtil.getCurrentUser();
+		// LOGGER.info("Roles - " + loggedInUserDetails.getUserRoles());
 		return LVNConstants.DASHBOARD_PAGE;
 	}
 
@@ -63,7 +63,7 @@ public class UserController {
 		if (isUserExist.isPresent()) {
 			redirectAttributes.addFlashAttribute(CommonConstants.ERROR, "User already exist");
 		} else {
-			
+
 		}
 
 		return "redirect:/client/user/add";

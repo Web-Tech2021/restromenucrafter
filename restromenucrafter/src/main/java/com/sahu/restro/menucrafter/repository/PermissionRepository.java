@@ -15,5 +15,5 @@ public interface PermissionRepository extends JpaRepository<Permission, Long> {
 	public List<Permission> getAllPermissionsOfUserByUserId(Long userId);
 
 	public List<Permission> findByActive(Boolean active);
-	
+
 }

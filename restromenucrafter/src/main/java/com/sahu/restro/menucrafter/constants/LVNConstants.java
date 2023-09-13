@@ -7,11 +7,11 @@ public interface LVNConstants {
 	public static final String LOGIN_PAGE = "/ui/login/login";
 
 	public static final String REDIRECT_LOGIN_PAGE = "redirect:/login";
-	
+
 	public static final String REGISTRATION_PAGE = "/ui/login/registration";
 
 	public static final String REDIRECT_REGISTRATION = "redirect:/registration";
-	
+
 	public static final String FORGET_PASSWORD_PAGE = "/ui/login/forget_password";
 
 	public static final String REDIRECT_FORGET_PASSWORD = "redirect:/forget-password";

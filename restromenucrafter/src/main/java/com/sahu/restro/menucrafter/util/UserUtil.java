@@ -35,11 +35,11 @@ public class UserUtil {
 		user.setResetPasswordToken(restPasswordToken);
 		return userService.save(user);
 	}
-	
+
 	public User updatePassword(User user, String newPassword) {
 		user.setPassword(passwordEncoder.encode(newPassword));
 		user.setResetPasswordToken(null);
 		return userService.save(user);
 	}
-	
+
 }

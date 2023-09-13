@@ -12,13 +12,12 @@ import com.sahu.restro.menucrafter.security.SecurityUtil;
 import com.sahu.restro.menucrafter.service.UserService;
 import com.sahu.restro.menucrafter.service.dto.CustomUserDetailsDTO;
 
-
 @Service
 public class AuditorAwareImpl implements AuditorAware<Long> {
 
 	@Autowired
-	private UserService  userService;
-	
+	private UserService userService;
+
 	@Override
 	public Optional<Long> getCurrentAuditor() {
 		CustomUserDetailsDTO userDetailsDTO = SecurityUtil.getCurrentUser();

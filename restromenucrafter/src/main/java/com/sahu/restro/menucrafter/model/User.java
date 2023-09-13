@@ -36,14 +36,13 @@ public class User extends Auditable<Long> {
 	private Long phoneNo;
 	private String password;
 	private String photos;
-	
+	private Boolean active;
+
 	@Enumerated(EnumType.STRING)
 	private Status status;
-	
-	private Boolean active;
-	
+
 	@Column(name = "reset_password_token")
-    private String resetPasswordToken;
+	private String resetPasswordToken;
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "role_user", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = {

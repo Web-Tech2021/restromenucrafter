@@ -65,5 +65,5 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 					userRoles, userPermissions);
 		}
 	}
-	
+
 }

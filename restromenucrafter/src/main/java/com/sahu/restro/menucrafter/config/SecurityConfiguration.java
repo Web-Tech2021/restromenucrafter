@@ -54,8 +54,8 @@ public class SecurityConfiguration {
 				.maximumSessions(1)
 				.maxSessionsPreventsLogin(false)
 				.expiredUrl("/login?session-expire");
-			
+
 		return http.build();
 	}
-	
+
 }

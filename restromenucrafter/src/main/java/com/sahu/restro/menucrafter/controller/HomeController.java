@@ -12,4 +12,5 @@ public class HomeController {
 	public String showIndexPage() {
 		return LVNConstants.LOGIN_PAGE;
 	}
+
 }

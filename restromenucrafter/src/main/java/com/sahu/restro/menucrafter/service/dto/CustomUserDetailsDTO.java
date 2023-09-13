@@ -30,15 +30,15 @@ public class CustomUserDetailsDTO extends User {
 			Long userId, String email, List<String> userRoles, List<String> userPermissions) {
 		super(username, password, authorities);
 		this.userId = userId;
-		this.email  = email;
+		this.email = email;
 		this.userRoles = userRoles;
 		this.userPermissions = userPermissions;
 	}
-	
+
 	public Boolean isGlobalAdmin() {
 		return SecurityUtil.isGlobalAdmin(null);
 	}
-	
+
 	public Boolean hasPermission(String permission) {
 		return SecurityUtil.hasPermission(permission);
 	}
