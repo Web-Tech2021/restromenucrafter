@@ -19,7 +19,7 @@ import com.sahu.restro.menucrafter.model.User;
 import com.sahu.restro.menucrafter.repository.PermissionRepository;
 import com.sahu.restro.menucrafter.repository.RoleRepository;
 import com.sahu.restro.menucrafter.repository.UserRepository;
-import com.sahu.restro.menucrafter.service.dto.CustomLoginUserDTO;
+import com.sahu.restro.menucrafter.service.dto.CustomUserDetailsDTO;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -36,7 +36,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	private PermissionRepository permissionRepository;
 
 	@Override
-	public CustomLoginUserDTO loadUserByUsername(String username) throws UsernameNotFoundException {
+	public CustomUserDetailsDTO loadUserByUsername(String username) throws UsernameNotFoundException {
 		LOGGER.debug("Inside loadUserByUsername() method");
 		Optional<User> user = userRepository.findByEmail(username);
 		LOGGER.info("User - " + user);
@@ -61,7 +61,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 					.collect(Collectors.toList());
 
 			LOGGER.info("User object created");
-			return new CustomLoginUserDTO(username, user.get().getPassword(), authorities, loggedInUserId, username,
+			return new CustomUserDetailsDTO(username, user.get().getPassword(), authorities, loggedInUserId, username,
 					userRoles, userPermissions);
 		}
 	}

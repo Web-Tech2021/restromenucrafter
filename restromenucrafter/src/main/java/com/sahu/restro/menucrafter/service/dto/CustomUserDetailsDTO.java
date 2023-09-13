@@ -11,7 +11,7 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class CustomLoginUserDTO extends User {
+public class CustomUserDetailsDTO extends User {
 
 	private static final long serialVersionUID = 1L;
 
@@ -20,11 +20,11 @@ public class CustomLoginUserDTO extends User {
 	private List<String> userRoles;
 	private List<String> userPermissions;
 
-	public CustomLoginUserDTO(String username, String password, Collection<? extends GrantedAuthority> authorities) {
+	public CustomUserDetailsDTO(String username, String password, Collection<? extends GrantedAuthority> authorities) {
 		super(username, password, authorities);
 	}
 
-	public CustomLoginUserDTO(String username, String password, Collection<? extends GrantedAuthority> authorities,
+	public CustomUserDetailsDTO(String username, String password, Collection<? extends GrantedAuthority> authorities,
 			Long userId, String email, List<String> userRoles, List<String> userPermissions) {
 		super(username, password, authorities);
 		this.userId = userId;

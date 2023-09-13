@@ -8,21 +8,21 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
 import com.sahu.restro.menucrafter.constants.PermissionConstants;
-import com.sahu.restro.menucrafter.service.dto.CustomLoginUserDTO;
+import com.sahu.restro.menucrafter.service.dto.CustomUserDetailsDTO;
 
 @Component
 public class SecurityUtil {
 
-	public static CustomLoginUserDTO getCurrentUser() {
+	public static CustomUserDetailsDTO getCurrentUser() {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		if (principal instanceof CustomLoginUserDTO) {
-			return ((CustomLoginUserDTO) principal);
+		if (principal instanceof CustomUserDetailsDTO) {
+			return ((CustomUserDetailsDTO) principal);
 		} else {
 			return null;
 		}
 	}
 
-	public static Boolean isGlobalAdmin(CustomLoginUserDTO loggedInUser) {
+	public static Boolean isGlobalAdmin(CustomUserDetailsDTO loggedInUser) {
 		if (loggedInUser == null) {
 			loggedInUser = getCurrentUser();
 		}
@@ -37,7 +37,7 @@ public class SecurityUtil {
 	}
 
 	public static Boolean hasPermission(String permission) {
-		CustomLoginUserDTO user = getCurrentUser();
+		CustomUserDetailsDTO user = getCurrentUser();
 		if (user != null) {
 			if (isGlobalAdmin(user)) {
 				return true;
@@ -52,7 +52,7 @@ public class SecurityUtil {
 	}
 
 	public static Boolean hasAllPermissions(String... permissions) {
-		CustomLoginUserDTO user = getCurrentUser();
+		CustomUserDetailsDTO user = getCurrentUser();
 		if (user != null) {
 			if (isGlobalAdmin(user)) {
 				return true;
@@ -67,7 +67,7 @@ public class SecurityUtil {
 	}
 
 	public static Boolean hasAnyPermission(String... permissions) {
-		CustomLoginUserDTO user = getCurrentUser();
+		CustomUserDetailsDTO user = getCurrentUser();
 		if (user != null) {
 			if (isGlobalAdmin(user)) {
 				return true;

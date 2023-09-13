@@ -10,7 +10,7 @@ import com.sahu.restro.menucrafter.constants.CommonConstants;
 import com.sahu.restro.menucrafter.model.User;
 import com.sahu.restro.menucrafter.security.SecurityUtil;
 import com.sahu.restro.menucrafter.service.UserService;
-import com.sahu.restro.menucrafter.service.dto.CustomLoginUserDTO;
+import com.sahu.restro.menucrafter.service.dto.CustomUserDetailsDTO;
 
 
 @Service
@@ -21,7 +21,7 @@ public class AuditorAwareImpl implements AuditorAware<Long> {
 	
 	@Override
 	public Optional<Long> getCurrentAuditor() {
-		CustomLoginUserDTO userDetailsDTO = SecurityUtil.getCurrentUser();
+		CustomUserDetailsDTO userDetailsDTO = SecurityUtil.getCurrentUser();
 		if (userDetailsDTO != null) {
 			return Optional.of(userDetailsDTO.getUserId());
 		} else {
