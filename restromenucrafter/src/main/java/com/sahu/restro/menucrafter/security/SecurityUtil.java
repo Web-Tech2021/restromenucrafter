@@ -21,7 +21,7 @@ public class SecurityUtil {
 			return null;
 		}
 	}
-
+	
 	public static Boolean isGlobalAdmin(CustomUserDetailsDTO loggedInUser) {
 		if (loggedInUser == null) {
 			loggedInUser = getCurrentUser();

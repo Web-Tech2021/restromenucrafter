@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
+import com.sahu.restro.menucrafter.security.SecurityUtil;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -31,6 +33,22 @@ public class CustomUserDetailsDTO extends User {
 		this.email  = email;
 		this.userRoles = userRoles;
 		this.userPermissions = userPermissions;
+	}
+	
+	public Boolean isGlobalAdmin() {
+		return SecurityUtil.isGlobalAdmin(null);
+	}
+	
+	public Boolean hasPermission(String permission) {
+		return SecurityUtil.hasPermission(permission);
+	}
+
+	public Boolean hasAllPermissions(String... permissions) {
+		return SecurityUtil.hasAllPermissions(permissions);
+	}
+
+	public Boolean hasAnyPermission(String... permissions) {
+		return SecurityUtil.hasAnyPermission(permissions);
 	}
 
 }
