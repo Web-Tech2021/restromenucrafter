@@ -19,6 +19,7 @@ import lombok.Setter;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public abstract class Auditable<U> {
+	
 	@CreatedBy
 	protected U createdBy;
 
@@ -32,4 +33,5 @@ public abstract class Auditable<U> {
 	@LastModifiedDate
 	// @Temporal(TemporalType.TIMESTAMP)
 	protected Date updatedAt;
+	
 }

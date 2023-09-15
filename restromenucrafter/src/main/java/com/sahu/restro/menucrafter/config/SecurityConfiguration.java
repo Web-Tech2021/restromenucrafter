@@ -26,7 +26,7 @@ public class SecurityConfiguration {
 				.antMatchers("/", "/login", "/registration", "/forget-password", 
 						"/reset-password", "/change-password").permitAll()
 				
-				.antMatchers(HttpMethod.GET, "/client/timesheet/list").hasAnyAuthority(PermissionConstants.ADD_MENU)
+				.antMatchers(HttpMethod.GET, "/client/timesheet/list").hasAnyAuthority(PermissionConstants.ADD_MENU, PermissionConstants.GLOBAL_ADMINISTRATION)
 				
 				.anyRequest().authenticated()
 			.and()
@@ -36,7 +36,7 @@ public class SecurityConfiguration {
 				.failureUrl("/login?error")
 				.usernameParameter("username")
 				.passwordParameter("password")
-				.defaultSuccessUrl("/client/user/dashboard", true)
+				.defaultSuccessUrl("/", true)
 			.and()
 			.csrf().disable()
 			.logout() 

@@ -25,6 +25,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 public class User extends Auditable<Long> {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -40,12 +41,16 @@ public class User extends Auditable<Long> {
 
 	@Enumerated(EnumType.STRING)
 	private Status status;
-
+	
 	@Column(name = "reset_password_token")
 	private String resetPasswordToken;
-
+	
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "role_user", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = {
-			@JoinColumn(name = "role_id") })
+	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private List<Role> roles;
+	
+	@ManyToMany
+	@JoinTable(name = "restro_user", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "restro_id"))
+	private List<Restro> restros;
+	
 }

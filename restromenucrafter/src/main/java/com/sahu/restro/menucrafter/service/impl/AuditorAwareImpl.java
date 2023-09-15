@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.stereotype.Service;
 
-import com.sahu.restro.menucrafter.constants.CommonConstants;
+import com.sahu.restro.menucrafter.constants.RestroMenuCrafterConstants;
 import com.sahu.restro.menucrafter.model.User;
 import com.sahu.restro.menucrafter.security.SecurityUtil;
 import com.sahu.restro.menucrafter.service.UserService;
@@ -24,7 +24,7 @@ public class AuditorAwareImpl implements AuditorAware<Long> {
 		if (userDetailsDTO != null) {
 			return Optional.of(userDetailsDTO.getUserId());
 		} else {
-			Optional<User> user = userService.findByEmail(CommonConstants.SUPPORT_EMAIL);
+			Optional<User> user = userService.findByEmail(RestroMenuCrafterConstants.SUPPORT_EMAIL);
 			return Optional.of(user.get().getId());
 		}
 	}

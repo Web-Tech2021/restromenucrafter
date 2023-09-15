@@ -1,13 +1,12 @@
 package com.sahu.restro.menucrafter.model;
 
-import java.io.Serializable;
-import java.util.List;
-
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,10 +16,8 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Permission extends Auditable<Long> implements Serializable {
-
-	private static final long serialVersionUID = 1L;
-
+public class AppParamValue {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -28,7 +25,8 @@ public class Permission extends Auditable<Long> implements Serializable {
 	private String description;
 	private Boolean active;
 
-	@ManyToMany(mappedBy = "permissions")
-	private List<Role> roles;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="app_param_group_id")
+	private AppParamGroup appParamGroup;
 	
 }

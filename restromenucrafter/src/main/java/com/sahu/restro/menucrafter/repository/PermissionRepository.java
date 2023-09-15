@@ -9,9 +9,11 @@ import com.sahu.restro.menucrafter.model.Permission;
 
 public interface PermissionRepository extends JpaRepository<Permission, Long> {
 
-	@Query(value = "SELECT p.* FROM permission p INNER JOIN role_permission rp ON rp.permission_id = p.id "
-			+ "INNER JOIN role r ON r.id = rp.role_id INNER JOIN role_user ru ON ru.role_id = r.id "
-			+ "WHERE ru.user_id =:userId AND p.active IS TRUE", nativeQuery = true)
+	@Query(value = "SELECT p.* FROM permission AS p	\r\n"
+			+ "INNER JOIN role_permission AS rp ON p.id = rp.permission_id \r\n"
+			+ "INNER JOIN role AS r ON rp.role_id = r.id \r\n"
+			+ "INNER JOIN user_role AS ur ON r.id = ur.role_id \r\n"
+			+ "WHERE ur.user_id = :userId AND p.active = true", nativeQuery = true)
 	public List<Permission> getAllPermissionsOfUserByUserId(Long userId);
 
 	public List<Permission> findByActive(Boolean active);

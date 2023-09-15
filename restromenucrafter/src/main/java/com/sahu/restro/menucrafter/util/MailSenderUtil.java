@@ -14,7 +14,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
 
-import com.sahu.restro.menucrafter.constants.CommonConstants;
+import com.sahu.restro.menucrafter.constants.RestroMenuCrafterConstants;
 import com.sahu.restro.menucrafter.model.User;
 
 @Component
@@ -41,7 +41,7 @@ public class MailSenderUtil {
 
 		String body = environment.getProperty("reset_password_body");
 		body = String.format(body, user.getFirstName() + " " + user.getLastName(),
-				restURL + CommonConstants.RESET_PWD_TOKEN_ATR + user.getResetPasswordToken());
+				restURL + RestroMenuCrafterConstants.RESET_PWD_TOKEN_ATR + user.getResetPasswordToken());
 		LOGGER.info("BODY - " + body);
 
 		messageHelper.setText(body, true);

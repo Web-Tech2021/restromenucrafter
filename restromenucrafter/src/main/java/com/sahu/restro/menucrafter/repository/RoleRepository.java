@@ -10,8 +10,9 @@ import com.sahu.restro.menucrafter.model.Role;
 
 public interface RoleRepository extends JpaRepository<Role, Long> {
 
-	@Query(value = "SELECT r.* FROM role r INNER JOIN role_user ru ON ru.role_id = r.id "
-			+ "WHERE ru.user_id=:userId AND r.active IS TRUE", nativeQuery = true)
+	@Query(value = "SELECT r.* FROM role AS r \r\n"
+			+ "INNER JOIN user_role AS ur ON r.id = ur.role_id \r\n"
+			+ "WHERE ur.user_id = :userId AND r.active = true", nativeQuery = true)
 	public List<Role> getRolesOfUserByUserId(Long userId);
 
 	public Optional<Role> findByName(String name);

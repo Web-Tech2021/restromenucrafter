@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.sahu.restro.menucrafter.constants.CommonConstants;
 import com.sahu.restro.menucrafter.constants.LVNConstants;
+import com.sahu.restro.menucrafter.constants.RestroMenuCrafterConstants;
 import com.sahu.restro.menucrafter.model.User;
 import com.sahu.restro.menucrafter.operation.dto.UserDTO;
 import com.sahu.restro.menucrafter.service.UserService;
@@ -29,11 +29,9 @@ public class UserController {
 
 	@GetMapping("/dashboard")
 	public String showDashBoardPage() {
-		// CustomUserDetailsDTO loggedInUserDetails = SecurityUtil.getCurrentUser();
-		// LOGGER.info("Roles - " + loggedInUserDetails.getUserRoles());
-		return LVNConstants.DASHBOARD_PAGE;
+		return LVNConstants.USER_DASHBOARD_PAGE;
 	}
-
+	
 	@GetMapping("/list")
 	public String showUserListPage() {
 		return LVNConstants.USER_LIST_PAGE;
@@ -61,7 +59,7 @@ public class UserController {
 
 		Optional<User> isUserExist = userService.findByEmail(userDTO.getEmail());
 		if (isUserExist.isPresent()) {
-			redirectAttributes.addFlashAttribute(CommonConstants.ERROR, "User already exist");
+			redirectAttributes.addFlashAttribute(RestroMenuCrafterConstants.ERROR, "User already exist");
 		} else {
 
 		}

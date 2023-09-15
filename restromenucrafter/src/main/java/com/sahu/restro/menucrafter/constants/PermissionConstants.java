@@ -23,10 +23,13 @@ public interface PermissionConstants {
 
 	public static final String DELETE_MENU = "DELETE_MENU";
 
+	public static final String VIEW_RESTRO_DASHBOARD = "VIEW_RESTRO_DASHBOARD";
+
 	public static List<String> getRestroAdminDefaultPermissions() {
 		List<String> permissions = new ArrayList<>();
 		permissions.addAll(getRestroDfaultPermissions());
 		permissions.addAll(getMenuDfaultPermissions());
+		permissions.add(VIEW_RESTRO_DASHBOARD);
 
 		return permissions;
 	}

@@ -20,7 +20,13 @@ public interface LVNConstants {
 
 	public static final String CHANGE_PASSWORD_PAGE = "/ui/login/change_password";
 
-	public static final String DASHBOARD_PAGE = "/ui/dashboard";
+	public static final String USER_DASHBOARD_PAGE = "/ui/user/user_dashboard";
+	
+	public static final String REDIRECT_USER_DASHBOARD = "redirect:/client/user/dashboard";
+	
+	public static final String RESTRO_DASHBOARD_PAGE = "/ui/restro/restro_dashboard";
+	
+	public static final String REDIRECT_RESTRO_DASHBOARD = "redirect:/client/restro/dashboard";
 
 	// USER
 	public static final String USER_LIST_PAGE = "/ui/user/user_list";

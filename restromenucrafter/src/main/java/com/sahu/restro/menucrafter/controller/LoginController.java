@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.sahu.restro.menucrafter.constants.CommonConstants;
 import com.sahu.restro.menucrafter.constants.LVNConstants;
+import com.sahu.restro.menucrafter.constants.RestroMenuCrafterConstants;
 import com.sahu.restro.menucrafter.model.User;
 import com.sahu.restro.menucrafter.service.UserService;
 import com.sahu.restro.menucrafter.util.MailSenderUtil;
@@ -60,16 +60,16 @@ public class LoginController {
 			Optional<User> optionalUser = userService.findByEmail(user.getEmail());
 
 			if (optionalUser.isPresent()) {
-				redirectAttributes.addFlashAttribute(CommonConstants.ERROR,
+				redirectAttributes.addFlashAttribute(RestroMenuCrafterConstants.ERROR,
 						environment.getProperty("duplicate_user_error_msg"));
 				return LVNConstants.REDIRECT_REGISTRATION;
 			} else {
 				Long registeredUserId = userUtil.registerUser(user);
 				if (registeredUserId != null) {
-					redirectAttributes.addFlashAttribute(CommonConstants.SUCCESS,
+					redirectAttributes.addFlashAttribute(RestroMenuCrafterConstants.SUCCESS,
 							environment.getProperty("registration_success_msg"));
 				} else {
-					redirectAttributes.addFlashAttribute(CommonConstants.ERROR,
+					redirectAttributes.addFlashAttribute(RestroMenuCrafterConstants.ERROR,
 							environment.getProperty("registration_failed_msg"));
 				}
 			}
@@ -94,14 +94,14 @@ public class LoginController {
 				String restURL = URLUtil.getSiteURL(request);
 				try {
 					mailSenderUtil.sendMailForResetPassword(updatedUSer, restURL);
-					redirectAttributes.addFlashAttribute(CommonConstants.SUCCESS,
+					redirectAttributes.addFlashAttribute(RestroMenuCrafterConstants.SUCCESS,
 							environment.getProperty("email_is_vaild_msg"));
 				} catch (MessagingException e) {
-					redirectAttributes.addFlashAttribute(CommonConstants.ERROR,
+					redirectAttributes.addFlashAttribute(RestroMenuCrafterConstants.ERROR,
 							environment.getProperty("email_is_not_vaild_msg"));
 				}
 			} else {
-				redirectAttributes.addFlashAttribute(CommonConstants.ERROR,
+				redirectAttributes.addFlashAttribute(RestroMenuCrafterConstants.ERROR,
 						environment.getProperty("dont_have_account_msg"));
 			}
 		}
@@ -121,7 +121,7 @@ public class LoginController {
 			}
 		}
 
-		redirectAttributes.addFlashAttribute(CommonConstants.ERROR, environment.getProperty("invalid_token_msg"));
+		redirectAttributes.addFlashAttribute(RestroMenuCrafterConstants.ERROR, environment.getProperty("invalid_token_msg"));
 		return LVNConstants.REDIRECT_FORGET_PASSWORD;
 	}
 
@@ -134,13 +134,13 @@ public class LoginController {
 			if (optionalUser.isPresent()) {
 				User user = userUtil.updatePassword(optionalUser.get(), newPassword);
 				if (user != null)
-					redirectAttributes.addFlashAttribute(CommonConstants.SUCCESS,
+					redirectAttributes.addFlashAttribute(RestroMenuCrafterConstants.SUCCESS,
 							environment.getProperty("is_password_changed_successfully"));
 				return LVNConstants.REDIRECT_LOGIN_PAGE;
 			}
 		}
 
-		redirectAttributes.addFlashAttribute(CommonConstants.ERROR, environment.getProperty("invalid_token_msg"));
+		redirectAttributes.addFlashAttribute(RestroMenuCrafterConstants.ERROR, environment.getProperty("invalid_token_msg"));
 		return LVNConstants.REDIRECT_FORGET_PASSWORD;
 	}
 
