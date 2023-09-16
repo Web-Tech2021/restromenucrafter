@@ -130,13 +130,13 @@ LOCK TABLES `restro` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `restro_user`
+-- Table structure for table `user_restro`
 --
 
-DROP TABLE IF EXISTS `restro_user`;
+DROP TABLE IF EXISTS `user_restro`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `restro_user` (
+CREATE TABLE `user_restro` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `created_at` datetime DEFAULT NULL,
   `created_by` bigint(20) DEFAULT NULL,
@@ -152,12 +152,12 @@ CREATE TABLE `restro_user` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `restro_user`
+-- Dumping data for table `user_restro`
 --
 
 LOCK TABLES `restro_user` WRITE;
-/*!40000 ALTER TABLE `restro_user` DISABLE KEYS */;
-/*!40000 ALTER TABLE `restro_user` ENABLE KEYS */;
+/*!40000 ALTER TABLE `user_restro` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user_restro` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --

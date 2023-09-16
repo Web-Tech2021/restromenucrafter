@@ -16,12 +16,12 @@ public class HomeController {
 		CustomUserDetailsDTO customUserDetailsDTO = SecurityUtil.getCurrentUser();
 		if (customUserDetailsDTO != null) {
 			if (customUserDetailsDTO.hasPermission(PermissionConstants.GLOBAL_ADMINISTRATION))
-				return LVNConstants.REDIRECT_USER_DASHBOARD;
+				return LVNConstants.REDIRECT_ADMIN_DASHBOARD;
 			else if (customUserDetailsDTO.hasPermission(PermissionConstants.VIEW_RESTRO_DASHBOARD)) 
 				return LVNConstants.REDIRECT_RESTRO_DASHBOARD;
 		}
 	
-		return LVNConstants.LOGIN_PAGE;
+		return LVNConstants.INDEX_PAGE;
 	}
 	
 }

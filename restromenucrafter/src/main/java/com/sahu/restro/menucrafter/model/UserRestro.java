@@ -17,8 +17,8 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @Entity
-@Table(name = "restro_user")
-public class RestroUser extends Auditable<Long> {
+@Table(name = "user_restro")
+public class UserRestro extends Auditable<Long> {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
