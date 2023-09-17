@@ -37,27 +37,34 @@
 							<div class="col-lg-6">
 								<div class="p-5">
 									<div class="text-center">
-										<h1 class="h4 text-gray-900 mb-4">[[${@environment.getProperty('welcome_back_heading')} ? ${@environment.getProperty('welcome_back_heading')} : 'Welcome Back!']]</h1>
+										<h1 class="h4 text-gray-900 mb-4">[[${@environment.getProperty('welcome_back_heading')}
+											? ${@environment.getProperty('welcome_back_heading')} :
+											'Welcome Back!']]</h1>
 									</div>
 									<form class="user" method="POST" th:action="@{/login}">
 										<div class="form-group">
 											<input type="email" class="form-control form-control-user"
-												id="exampleInputEmail" th:name="username" aria-describedby="emailHelp"
-												placeholder="Email Address">
+												id="exampleInputEmail" th:name="username"
+												aria-describedby="emailHelp" placeholder="Email Address">
 										</div>
 										<div class="form-group">
 											<input type="password" class="form-control form-control-user"
-												id="exampleInputPassword" th:name="password" placeholder="Password">
+												id="exampleInputPassword" th:name="password"
+												placeholder="Password">
 										</div>
 										<div class="form-group">
 											<div class="custom-control custom-checkbox small">
 												<input type="checkbox" class="custom-control-input"
 													id="customCheck"> <label
-													class="custom-control-label" for="customCheck">[[${@environment.getProperty('remember_me_label')} ? ${@environment.getProperty('remember_me_label')} : 'Remember me']]</label>
+													class="custom-control-label" for="customCheck">[[${@environment.getProperty('remember_me_label')}
+													? ${@environment.getProperty('remember_me_label')} :
+													'Remember me']]</label>
 											</div>
 										</div>
 										<button type="submit"
-											class="btn btn-primary btn-user btn-block"> [[${@environment.getProperty('login_btn')} ? ${@environment.getProperty('login_btn')} : 'Login']] </button>
+											class="btn btn-primary btn-user btn-block">
+											[[${@environment.getProperty('login_btn')} ?
+											${@environment.getProperty('login_btn')} : 'Login']]</button>
 										<!-- <hr>
 										<a href="/oauth2/authorization/google" class="btn btn-google btn-user btn-block">
 											<i class="fa fa-google fa-fw"></i> [[${@environment.getProperty('login_with_google_lable')} ? ${@environment.getProperty('login_with_google_lable')} : 'Login with Google']]
@@ -69,11 +76,16 @@
 									</form>
 									<hr>
 									<div class="text-center">
-										<a class="small" th:href="@{/forget-password}">[[${@environment.getProperty('forget_password_link')} ? ${@environment.getProperty('forget_password_link')} : 'Forgot password?']]</a>
+										<a class="small" th:href="@{/forget-password}">[[${@environment.getProperty('forget_password_link')}
+											? ${@environment.getProperty('forget_password_link')} :
+											'Forgot password?']]</a>
 									</div>
 									<div class="text-center">
-										<label class="dont_have_acc small">[[${@environment.getProperty('dont_have_acc_label')} ? ${@environment.getProperty('dont_have_acc_label')} : 'Do not have an account?']]</label> 
-										<a class="small"  th:href="@{/registration}">[[${@environment.getProperty('signup_link')} ? ${@environment.getProperty('signup_link')} : 'SignUp']]</a>
+										<label class="dont_have_acc small">[[${@environment.getProperty('dont_have_acc_label')}
+											? ${@environment.getProperty('dont_have_acc_label')} : 'Do
+											not have an account?']]</label> <a class="small"
+											th:href="@{/registration}">[[${@environment.getProperty('signup_link')}
+											? ${@environment.getProperty('signup_link')} : 'SignUp']]</a>
 									</div>
 								</div>
 							</div>

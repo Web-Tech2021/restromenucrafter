@@ -86,11 +86,6 @@ html {
   min-height: 100%;
 }
 
-body{
-	font-family: system-ui;
-	height: 100%;
-}
-
 .main_body_div {
 	background: #ecf9f5;
 }
