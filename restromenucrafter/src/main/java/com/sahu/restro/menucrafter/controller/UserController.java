@@ -64,8 +64,9 @@ public class UserController {
 						environment.getProperty("duplicate_user_error_msg"));
 				return LVNConstants.REDIRECT_REGISTRATION;
 			} else {
-				Long registeredUserId = userUtil.registerUser(user);
-				if (registeredUserId != null) {
+				User registeredUser = userUtil.registerUser(user);
+				if (registeredUser != null) {
+					mailSenderUtil.sendWelcomeMail(user);
 					redirectAttributes.addFlashAttribute(RestroMenuCrafterConstants.SUCCESS,
 							environment.getProperty("registration_success_msg"));
 				} else {

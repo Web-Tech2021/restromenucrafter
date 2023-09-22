@@ -40,8 +40,8 @@
 							Templates']]</a></li>
 					<li><a class="nav-link scrollto" href="#services">[[${@environment.getProperty('nav_services')}
 							? ${@environment.getProperty('nav_services')} : 'Services']]</a></li>
-					<li><a class="nav-link scrollto" href="#founders">[[${@environment.getProperty('nav_founders')}
-							? ${@environment.getProperty('nav_founders')} : 'Founders']]</a></li>
+					<!-- <li><a class="nav-link scrollto" href="#founders">[[${@environment.getProperty('nav_founders')}
+							? ${@environment.getProperty('nav_founders')} : 'Founders']]</a></li> -->
 					<li><a class="nav-link scrollto" href="#contact">[[${@environment.getProperty('nav_contact')}
 							? ${@environment.getProperty('nav_contact')} : 'Contact']]</a></li>
 				</ul>
@@ -97,26 +97,35 @@
 						</div>
 					</div>
 					<div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-						<h3>Voluptatem dignissimos provident quasi corporis
-							voluptates sit assumenda.</h3>
-						<p class="fst-italic">Lorem ipsum dolor sit amet, consectetur
-							adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-							dolore magna aliqua.</p>
+						<h3>[[${@environment.getProperty('about_us_heading')} ?
+							${@environment.getProperty('about_us_heading')} : 'Restro Menu
+							Crafter is the perfect tool for restaurants to easily create and
+							share their menus.']]</h3>
+						<p class="fst-italic">[[${@environment.getProperty('about_us_paragraph')}
+							? ${@environment.getProperty('about_us_paragraph')} : 'With our
+							unique QRCode scanning feature, customers can access your menu
+							instantly']]</p>
 						<ul>
-							<li><i class="bi bi-check-circle"></i> Ullamco laboris nisi
-								ut aliquip ex ea commodo consequat.</li>
-							<li><i class="bi bi-check-circle"></i> Duis aute irure dolor
-								in reprehenderit in voluptate velit.</li>
-							<li><i class="bi bi-check-circle"></i> Ullamco laboris nisi
-								ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-								reprehenderit in voluptate trideta storacalaperda mastiro dolore
-								eu fugiat nulla pariatur.</li>
+							<li><i class="bi bi-check-circle"></i>[[${@environment.getProperty('ul_li_point_1')}
+								? ${@environment.getProperty('ul_li_point_1')} : 'Streamline
+								menu creation']]</li>
+							<li><i class="bi bi-check-circle"></i>
+								[[${@environment.getProperty('ul_li_point_2')} ?
+								${@environment.getProperty('ul_li_point_2')} : 'Instant menu
+								access']]</li>
+							<li><i class="bi bi-check-circle"></i>
+								[[${@environment.getProperty('ul_li_point_3')} ?
+								${@environment.getProperty('ul_li_point_3')} : 'Easy menu
+								updates']]</li>
 						</ul>
-						<p>Ullamco laboris nisi ut aliquip ex ea commodo consequat.
-							Duis aute irure dolor in reprehenderit in voluptate velit esse
-							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-							cupidatat non proident, sunt in culpa qui officia deserunt mollit
-							anim id est laborum</p>
+						<p>[[${@environment.getProperty('our_mission_paragraph')} ?
+							${@environment.getProperty('our_mission_paragraph')} : 'Our
+							mission is simple yet ambitious: to revolutionize the way
+							restaurants manage their menus. We believe that a well-crafted
+							menu is more than just a list of dishes; it is an invitation to
+							savor a memorable dining experience. We are committed to
+							providing restaurants with the tools they need to create menus
+							that captivate, inspire, and connect with their customers.']]</p>
 					</div>
 				</div>
 
@@ -132,8 +141,8 @@
 					<h2>[[${@environment.getProperty('why_us_heading')} ?
 						${@environment.getProperty('why_us_heading')} : 'Why Us']]</h2>
 					<p>[[${@environment.getProperty('why_us_paragraph')} ?
-						${@environment.getProperty('why_us_paragraph')} : 'Why you should
-						Choose Our Restro Menu Crafter']]</p>
+						${@environment.getProperty('why_us_paragraph')} : 'Why should You
+						Choose Restro Menu Crafter']]</p>
 				</div>
 
 				<div class="row">
@@ -141,27 +150,42 @@
 					<div class="col-lg-4">
 						<div class="box" data-aos="zoom-in" data-aos-delay="100">
 							<span>01</span>
-							<h4>Lorem Ipsum</h4>
-							<p>Ulamco laboris nisi ut aliquip ex ea commodo consequat. Et
-								consectetur ducimus vero placeat</p>
+							<h4>[[${@environment.getProperty('point1_heading')} ?
+								${@environment.getProperty('point1_heading')} : 'Streamline menu
+								creation']]</h4>
+							<p>[[${@environment.getProperty('point1_paragraph')} ?
+								${@environment.getProperty('point1_paragraph')} : 'We simplifies
+								the process of creating a restaurant menu. You can easily add
+								and organize your dishes, making it effortless to update and
+								maintain your menu.']]</p>
 						</div>
 					</div>
 
 					<div class="col-lg-4 mt-4 mt-lg-0">
 						<div class="box" data-aos="zoom-in" data-aos-delay="200">
 							<span>02</span>
-							<h4>Repellat Nihil</h4>
-							<p>Dolorem est fugiat occaecati voluptate velit esse. Dicta
-								veritatis dolor quod et vel dire leno para dest</p>
+							<h4>[[${@environment.getProperty('point2_heading')} ?
+								${@environment.getProperty('point2_heading')} : 'Instant menu
+								access']]</h4>
+							<p>[[${@environment.getProperty('point2_paragraph')} ?
+								${@environment.getProperty('point2_paragraph')} : 'With our
+								unique QRCode scanning feature, customers can access your menu
+								instantly by simply scanning the QRCode. This eliminates the
+								need for physical menus.']]</p>
 						</div>
 					</div>
 
 					<div class="col-lg-4 mt-4 mt-lg-0">
 						<div class="box" data-aos="zoom-in" data-aos-delay="300">
 							<span>03</span>
-							<h4>Ad ad velit qui</h4>
-							<p>Molestiae officiis omnis illo asperiores. Aut doloribus
-								vitae sunt debitis quo vel nam quis</p>
+							<h4>[[${@environment.getProperty('point3_heading')} ?
+								${@environment.getProperty('point3_heading')} : 'Easy menu
+								updates']]</h4>
+							<p>[[${@environment.getProperty('point3_paragraph')} ?
+								${@environment.getProperty('point3_paragraph')} : 'We allows you
+								to make quick and easy updates to your menu. Whether you want to
+								add new dishes, change prices, or update descriptions, you can
+								do it all in a few clicks.']]</p>
 						</div>
 					</div>
 
@@ -538,8 +562,8 @@
 							<div class="testimonial-item">
 								<p>
 									<i class="bx bxs-quote-alt-left quote-icon-left"></i>
-									[[${@environment.getProperty('testimonials1_name')} ?
-									${@environment.getProperty('testimonials1_name')} : 'Quis
+									[[${@environment.getProperty('testimonials5_content')} ?
+									${@environment.getProperty('testimonials5_content')} : 'Quis
 									quorum aliqua sint quem legam fore sunt eram irure aliqua
 									veniam tempor noster veniam enim culpa labore duis sunt culpa
 									nulla illum cillum fugiat legam esse veniam culpa fore nisi
@@ -567,7 +591,7 @@
 		<!-- End Testimonials Section -->
 
 		<!-- Founder Section -->
-		<section id="founders" class="founders">
+		<!-- <section id="founders" class="founders">
 			<div class="container" data-aos="fade-up">
 
 				<div class="section-title">
@@ -652,7 +676,7 @@
 				</div>
 
 			</div>
-		</section>
+		</section>  -->
 		<!-- End Founders Section -->
 
 		<!-- Contact Section -->

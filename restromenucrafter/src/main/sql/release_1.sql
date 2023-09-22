@@ -25,10 +25,10 @@ DROP TABLE IF EXISTS `app_param_group`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `app_param_group` (
-  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
-  `active` BIT(1) DEFAULT NULL,
-  `description` VARCHAR(255) DEFAULT NULL,
-  `name` VARCHAR(255) DEFAULT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `active` bit(1) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -67,6 +67,68 @@ CREATE TABLE `app_param_value` (
 LOCK TABLES `app_param_value` WRITE;
 /*!40000 ALTER TABLE `app_param_value` DISABLE KEYS */;
 /*!40000 ALTER TABLE `app_param_value` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `contact_us`
+--
+
+DROP TABLE IF EXISTS `contact_us`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `contact_us` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `created_at` datetime DEFAULT NULL,
+  `created_by` bigint(20) DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `updated_by` bigint(20) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `message` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `subject` varchar(255) DEFAULT NULL,
+  `uuid` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `contact_us`
+--
+
+LOCK TABLES `contact_us` WRITE;
+/*!40000 ALTER TABLE `contact_us` DISABLE KEYS */;
+/*!40000 ALTER TABLE `contact_us` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `news_letter_subscribers`
+--
+
+DROP TABLE IF EXISTS `news_letter_subscribers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `news_letter_subscribers` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `active` bit(1) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  `subscription_date` datetime DEFAULT NULL,
+  `subscription_source` varchar(255) DEFAULT NULL,
+  `subscription_status` varchar(255) DEFAULT NULL,
+  `unsubscription_date` datetime DEFAULT NULL,
+  `uuid` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `news_letter_subscribers`
+--
+
+LOCK TABLES `news_letter_subscribers` WRITE;
+/*!40000 ALTER TABLE `news_letter_subscribers` DISABLE KEYS */;
+/*!40000 ALTER TABLE `news_letter_subscribers` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -116,7 +178,9 @@ CREATE TABLE `restro` (
   `photo` varchar(255) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
   `uuid` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `restro_type` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKc28qn08x0d0juognk1a8fit1x` (`restro_type`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -127,37 +191,6 @@ CREATE TABLE `restro` (
 LOCK TABLES `restro` WRITE;
 /*!40000 ALTER TABLE `restro` DISABLE KEYS */;
 /*!40000 ALTER TABLE `restro` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `user_restro`
---
-
-DROP TABLE IF EXISTS `user_restro`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `user_restro` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `created_at` datetime DEFAULT NULL,
-  `created_by` bigint(20) DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `updated_by` bigint(20) DEFAULT NULL,
-  `active` bit(1) DEFAULT NULL,
-  `restro_id` bigint(20) DEFAULT NULL,
-  `user_id` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK4t326bkg7j4g29gqoqrfvxsgk` (`restro_id`),
-  KEY `FK6ggipyrvaacu3b3a30f7x357g` (`user_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `user_restro`
---
-
-LOCK TABLES `restro_user` WRITE;
-/*!40000 ALTER TABLE `user_restro` DISABLE KEYS */;
-/*!40000 ALTER TABLE `user_restro` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -250,6 +283,37 @@ LOCK TABLES `user` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `user_restro`
+--
+
+DROP TABLE IF EXISTS `user_restro`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user_restro` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `created_at` datetime DEFAULT NULL,
+  `created_by` bigint(20) DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `updated_by` bigint(20) DEFAULT NULL,
+  `active` bit(1) DEFAULT NULL,
+  `restro_id` bigint(20) DEFAULT NULL,
+  `user_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKj8lbw7kn1rr1yov1kr4ojlvfd` (`restro_id`),
+  KEY `FK2fwdwfoy62kn57scusudm5rna` (`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_restro`
+--
+
+LOCK TABLES `user_restro` WRITE;
+/*!40000 ALTER TABLE `user_restro` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user_restro` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `user_role`
 --
 
@@ -282,4 +346,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-15 22:30:02
+-- Dump completed on 2023-09-22 11:18:41

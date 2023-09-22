@@ -16,4 +16,8 @@ public interface RestroMenuCrafterConstants {
 
 	public static final String APP_PARAM_GROUP_MENU_CATEGORIES = "MENU_CATEGORIES";
 
+	public static final String FTL_USER_NAME = "$[[USER_NAME]]";
+	
+	public static final String FTL_REST_PSW_URL = "$[[REST_PSW_URL]]";
+
 }

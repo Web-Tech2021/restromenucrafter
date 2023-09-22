@@ -28,20 +28,22 @@ public class UserUtil {
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 
-	public Long registerUser(User user) {
+	public User registerUser(User user) {
 		user.setUuid(UUID.randomUUID().toString());
 		user.setStatus(Status.ACTIVE);
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		user.setActive(true);
-		user.setCreatedAt(new Date());
-		user.setUpdatedAt(new Date());
+		
+		Date currentDate = new Date();
+		user.setCreatedAt(currentDate);
+		user.setUpdatedAt(currentDate);
 		
 		Optional<Role> role = roleService.findByName(RoleConstants.RESTRO_ADMIN);
 		if(role.isPresent()) {
 			user.setRoles(List.of(role.get()));
 		}
 	
-		return userService.save(user).getId();
+		return userService.save(user);
 	}
 
 	public User getTokenForReset(User user) {

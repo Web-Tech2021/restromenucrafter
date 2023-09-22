@@ -1,44 +1,40 @@
 package com.sahu.restro.menucrafter.model;
 
-import java.util.List;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 
 import com.sahu.restro.menucrafter.constants.Status;
+import com.sahu.restro.menucrafter.constants.SubscriptionSource;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Setter
 @Getter
+@NoArgsConstructor
 @Entity
-public class Restro extends Auditable<Long> {
-	
+public class NewsLetterSubscribers {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String name;
-	private String photo;
 	private String uuid;
+	private String email;
+	private String firstName;
+	private String lastName;
+	private Date subscriptionDate;
+	private Date unsubscriptionDate;
 	private Boolean active;
-
+	
 	@Enumerated(EnumType.STRING)
-	private Status status;
-
-	@ManyToMany(mappedBy = "restros")
-	private List<User> users;
+	private Status subscriptionStatus;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "restro_type")
-	private AppParamValue restroType;
-	
+	@Enumerated(EnumType.STRING)
+	private SubscriptionSource subscriptionSource;
 }
