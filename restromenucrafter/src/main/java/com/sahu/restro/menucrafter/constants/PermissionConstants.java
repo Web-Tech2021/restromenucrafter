@@ -7,13 +7,13 @@ public interface PermissionConstants {
 
 	public static final String GLOBAL_ADMINISTRATION = "GLOBAL_ADMINISTRATION";
 
-	public static final String VIEW_RESTRO = "VIEW_RESTRO";
+	public static final String VIEW_RESTURANT = "VIEW_RESTURANT";
 
-	public static final String ADD_RESTRO = "ADD_RESTRO";
+	public static final String ADD_RESTURANT = "ADD_RESTURANT";
 
-	public static final String EDIT_RESTRO = "EDIT_RESTRO";
+	public static final String EDIT_RESTURANT = "EDIT_RESTURANT";
 
-	public static final String DELETE_RESTRO = "DELETE_RESTRO";
+	public static final String DELETE_RESTURANT = "DELETE_RESTURANT";
 
 	public static final String VIEW_MENU = "VIEW_MENU";
 
@@ -23,23 +23,23 @@ public interface PermissionConstants {
 
 	public static final String DELETE_MENU = "DELETE_MENU";
 
-	public static final String VIEW_RESTRO_DASHBOARD = "VIEW_RESTRO_DASHBOARD";
+	public static final String VIEW_RESTURANT_DASHBOARD = "VIEW_RESTURANT_DASHBOARD";
 
-	public static List<String> getRestroAdminDefaultPermissions() {
+	public static List<String> getResturantAdminDefaultPermissions() {
 		List<String> permissions = new ArrayList<>();
-		permissions.addAll(getRestroDfaultPermissions());
+		permissions.addAll(getResturantDfaultPermissions());
 		permissions.addAll(getMenuDfaultPermissions());
-		permissions.add(VIEW_RESTRO_DASHBOARD);
+		permissions.add(VIEW_RESTURANT_DASHBOARD);
 
 		return permissions;
 	}
 
-	public static List<String> getRestroDfaultPermissions() {
+	public static List<String> getResturantDfaultPermissions() {
 		List<String> permissions = new ArrayList<>();
-		permissions.add(VIEW_RESTRO);
-		permissions.add(ADD_RESTRO);
-		permissions.add(EDIT_RESTRO);
-		permissions.add(DELETE_RESTRO);
+		permissions.add(VIEW_RESTURANT);
+		permissions.add(ADD_RESTURANT);
+		permissions.add(EDIT_RESTURANT);
+		permissions.add(DELETE_RESTURANT);
 
 		return permissions;
 	}

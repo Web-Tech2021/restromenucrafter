@@ -27,7 +27,7 @@ public class SecurityConfiguration {
 						"/reset-password", "/change-password").permitAll()
 				
 				.antMatchers(HttpMethod.GET, "/client/admin/dashboard").hasAnyAuthority(PermissionConstants.GLOBAL_ADMINISTRATION)
-				.antMatchers(HttpMethod.GET, "/client/restro/dashboard").hasAnyAuthority(PermissionConstants.VIEW_RESTRO_DASHBOARD, PermissionConstants.GLOBAL_ADMINISTRATION)
+				.antMatchers(HttpMethod.GET, "/client/restro/dashboard").hasAnyAuthority(PermissionConstants.VIEW_RESTURANT_DASHBOARD, PermissionConstants.GLOBAL_ADMINISTRATION)
 				
 				.anyRequest().authenticated()
 			.and()

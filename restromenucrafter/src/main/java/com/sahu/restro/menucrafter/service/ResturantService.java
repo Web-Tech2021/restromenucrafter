@@ -1,5 +1,5 @@
 package com.sahu.restro.menucrafter.service;
 
-public interface RestroService {
+public interface ResturantService {
 
 }

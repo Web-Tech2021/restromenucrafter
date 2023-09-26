@@ -39,8 +39,11 @@ public class MailSenderUtil {
 
 	@Autowired
 	private ResourceLoader resourceLoader;
+	
+	@Autowired
+	private CommonsUtil commonsUtil;
 
-	public String sendMailForResetPassword(User user, String restURL) throws MessagingException {
+	public String sendMailForResetPassword(User user, String siteURL) throws MessagingException {
 		MimeMessage mimeMessage = mailSender.createMimeMessage(); 
 		MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true);
 		messageHelper.setFrom(fromEmail);
@@ -53,10 +56,11 @@ public class MailSenderUtil {
 			String resetPasswordBody = new String(Files.readAllBytes(resetPasswordFile.toPath()));
 			
 			Map<String, String> replacements = new HashMap<>();
+			replacements.put(RestroMenuCrafterConstants.FTL_SITE_URL, siteURL);
 			replacements.put(RestroMenuCrafterConstants.FTL_USER_NAME, user.getFirstName() + " " + user.getLastName());
-			replacements.put(RestroMenuCrafterConstants.FTL_REST_PSW_URL, restURL + RestroMenuCrafterConstants.RESET_PWD_TOKEN_ATR + user.getResetPasswordToken());
+			replacements.put(RestroMenuCrafterConstants.FTL_REST_PSW_URL, siteURL + RestroMenuCrafterConstants.RESET_PWD_TOKEN_ATR + user.getResetPasswordToken());
 
-			messageHelper.setText(prepareTheMailBodyContent(resetPasswordBody, replacements), true);
+			messageHelper.setText(commonsUtil.prepareTheMailBodyContent(resetPasswordBody, replacements), true);
 		} catch (IOException e) {
 			LOGGER.error(e.getMessage());
 			return e.getMessage();
@@ -66,7 +70,7 @@ public class MailSenderUtil {
 		return "Mail sent";
 	}
 
-	public String sendWelcomeMail(User user) {
+	public String sendWelcomeMail(User user, String siteURL) {
 		try {
 			MimeMessage mimeMessage = mailSender.createMimeMessage();
 			MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true);
@@ -79,9 +83,10 @@ public class MailSenderUtil {
 			String welcomeBody = new String(Files.readAllBytes(welcomeFile.toPath()));
 			
 			Map<String, String> replacements = new HashMap<>();
+			replacements.put(RestroMenuCrafterConstants.FTL_SITE_URL, siteURL);
 			replacements.put(RestroMenuCrafterConstants.FTL_USER_NAME, user.getFirstName() + " " + user.getLastName());
 
-			messageHelper.setText(prepareTheMailBodyContent(welcomeBody, replacements), true);
+			messageHelper.setText(commonsUtil.prepareTheMailBodyContent(welcomeBody, replacements), true);
 			mailSender.send(mimeMessage);
 
 			return "Mail sent";
@@ -92,18 +97,6 @@ public class MailSenderUtil {
 			LOGGER.error(e.getMessage());
 			return e.getMessage();
 		}
-	}
-
-	public String prepareTheMailBodyContent(String content, Map<String, String> replacements) {
-		StringBuffer contentBuffer = new StringBuffer(content);
-
-		for (String wordToReplace : replacements.keySet()) {
-			String replacement = replacements.get(wordToReplace);
-			contentBuffer.replace(content.indexOf(wordToReplace),
-					content.indexOf(wordToReplace) + wordToReplace.length(), replacement);
-		}
-
-		return contentBuffer.toString();
 	}
 
 }

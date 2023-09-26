@@ -20,7 +20,7 @@ import lombok.Setter;
 public class Permission extends Auditable<Long> implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

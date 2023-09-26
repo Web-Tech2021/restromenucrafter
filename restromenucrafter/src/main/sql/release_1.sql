@@ -101,13 +101,13 @@ LOCK TABLES `contact_us` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `news_letter_subscribers`
+-- Table structure for table `news_letter_subscriber`
 --
 
-DROP TABLE IF EXISTS `news_letter_subscribers`;
+DROP TABLE IF EXISTS `news_letter_subscriber`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `news_letter_subscribers` (
+CREATE TABLE `news_letter_subscriber` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `active` bit(1) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
@@ -123,12 +123,12 @@ CREATE TABLE `news_letter_subscribers` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `news_letter_subscribers`
+-- Dumping data for table `news_letter_subscriber`
 --
 
-LOCK TABLES `news_letter_subscribers` WRITE;
-/*!40000 ALTER TABLE `news_letter_subscribers` DISABLE KEYS */;
-/*!40000 ALTER TABLE `news_letter_subscribers` ENABLE KEYS */;
+LOCK TABLES `news_letter_subscriber` WRITE;
+/*!40000 ALTER TABLE `news_letter_subscriber` DISABLE KEYS */;
+/*!40000 ALTER TABLE `news_letter_subscriber` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -161,13 +161,13 @@ LOCK TABLES `permission` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `restro`
+-- Table structure for table `resturant`
 --
 
-DROP TABLE IF EXISTS `restro`;
+DROP TABLE IF EXISTS `resturant`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `restro` (
+CREATE TABLE `resturant` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `created_at` datetime DEFAULT NULL,
   `created_by` bigint(20) DEFAULT NULL,
@@ -178,19 +178,19 @@ CREATE TABLE `restro` (
   `photo` varchar(255) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
   `uuid` varchar(255) DEFAULT NULL,
-  `restro_type` bigint(20) DEFAULT NULL,
+  `resturant_type` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `FKc28qn08x0d0juognk1a8fit1x` (`restro_type`)
+  KEY `FKrsskliu5ta2g98910wxjdljgh` (`resturant_type`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `restro`
+-- Dumping data for table `resturant`
 --
 
-LOCK TABLES `restro` WRITE;
-/*!40000 ALTER TABLE `restro` DISABLE KEYS */;
-/*!40000 ALTER TABLE `restro` ENABLE KEYS */;
+LOCK TABLES `resturant` WRITE;
+/*!40000 ALTER TABLE `resturant` DISABLE KEYS */;
+/*!40000 ALTER TABLE `resturant` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -283,34 +283,34 @@ LOCK TABLES `user` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `user_restro`
+-- Table structure for table `user_resturant`
 --
 
-DROP TABLE IF EXISTS `user_restro`;
+DROP TABLE IF EXISTS `user_resturant`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `user_restro` (
+CREATE TABLE `user_resturant` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `created_at` datetime DEFAULT NULL,
   `created_by` bigint(20) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `updated_by` bigint(20) DEFAULT NULL,
   `active` bit(1) DEFAULT NULL,
-  `restro_id` bigint(20) DEFAULT NULL,
+  `resturant_id` bigint(20) DEFAULT NULL,
   `user_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `FKj8lbw7kn1rr1yov1kr4ojlvfd` (`restro_id`),
-  KEY `FK2fwdwfoy62kn57scusudm5rna` (`user_id`)
+  KEY `FK8bi5wp9o8yhfwmduw4ncomqg6` (`resturant_id`),
+  KEY `FK9di2lq3esdyoidqalkhymc3ae` (`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `user_restro`
+-- Dumping data for table `user_resturant`
 --
 
-LOCK TABLES `user_restro` WRITE;
-/*!40000 ALTER TABLE `user_restro` DISABLE KEYS */;
-/*!40000 ALTER TABLE `user_restro` ENABLE KEYS */;
+LOCK TABLES `user_resturant` WRITE;
+/*!40000 ALTER TABLE `user_resturant` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user_resturant` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -346,4 +346,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-22 11:18:41
+-- Dump completed on 2023-09-26 22:10:36

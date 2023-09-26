@@ -1,6 +1,6 @@
 INSERT INTO `user` VALUES 
 	(1,now(),null,now(),null,true,'nirmalakumarsahu7@gmail.com','Nirmala','Sahu',NULL,'$2a$10$n/ACAbYelLw4Mt3Id2LrZ.QzyaXsb3Ywt0Q9NrnvFajKFAGnZKvQO',NULL,NULL, NULL, 'ACTIVE','b77d9d79-a16c-4582-9b51-500ba8378205'),
-	(2,now(),null,now(),null,true,'support.restromenucrafters@gmail.com','Support','Restro Menu Crafters',NULL,'$2a$10$N1LVoZFgZER54eprPMnN2.ayMiYnHxn.c8x8522t7OYyO9dvJdPqS',NULL,NULL, NULL, 'ACTIVE','94d81b2b-20f6-4561-9249-06f03acf7fc4');
+	(2,now(),null,now(),null,true,'restromenucrafter@gmail.com','Support','Restro Menu Crafters',NULL,'$2a$10$N1LVoZFgZER54eprPMnN2.ayMiYnHxn.c8x8522t7OYyO9dvJdPqS',NULL,NULL, NULL, 'ACTIVE','94d81b2b-20f6-4561-9249-06f03acf7fc4');
 
 INSERT INTO `role` VALUES 
 	(1, now(),1,now(),1,true,'GLOBAL ADMIN'),
@@ -11,20 +11,20 @@ INSERT INTO `user_role` VALUES (1,1);
 
 INSERT INTO `permission` VALUES 
 	(1,now(),1,now(),1,true,NULL,'GLOBAL_ADMINISTRATION'),
-    (2,now(),1,now(),1,true,NULL,'VIEW_RESTRO'),
-    (3,now(),1,now(),1,true,NULL,'ADD_RESTRO'),
-	(4,now(),1,now(),1,true,NULL,'EDIT_RESTRO'),
-	(5,now(),1,now(),1,true,NULL,'DELETE_RESTRO'),
+    (2,now(),1,now(),1,true,NULL,'VIEW_RESTURANT'),
+    (3,now(),1,now(),1,true,NULL,'ADD_RESTURANT'),
+	(4,now(),1,now(),1,true,NULL,'EDIT_RESTURANT'),
+	(5,now(),1,now(),1,true,NULL,'DELETE_RESTURANT'),
 	(6,now(),1,now(),1,true,NULL,'VIEW_MENU'),
 	(7,now(),1,now(),1,true,NULL,'ADD_MENU'),
 	(8,now(),1,now(),1,true,NULL,'EDIT_MENU'),
 	(9,now(),1,now(),1,true,NULL,'DELETE_MENU'),
-	(10,now(),1,now(),1,true,NULL,'VIEW_RESTRO_DASHBOARD');
+	(10,now(),1,now(),1,true,NULL,'VIEW_RESTURANT_DASHBOARD');
 
 INSERT INTO `role_permission` VALUES (1,1), (2,2), (2,3), (2,4), (2,5), (2,6), (2,7), (2,8), (2,9), (2,10);
 
 INSERT INTO app_param_group VALUES 
-	(1, true, 'Type of restaurants like, veg or non veg', 'RESTRO_TYPES'),
+	(1, true, 'Type of restaurants like, veg or non veg', 'RESTURANT_TYPES'),
     (2, true, 'Type of food groups', 'FOOD_TYPES'),
     (3, true, 'Different Menu Categories', 'MENU_CATEGORIES');
 

@@ -261,13 +261,13 @@
 																						<tbody>
 																							<tr>
 																								<td>
-																									<a href="https://localhost:8989/"
+																									<a href="$[[SITE_URL]]"
 																										target="_blank">
 																										<img alt="logo"
 																											border="0"
 																											class="logo_center"
 																											height="60"
-																											src="https://localhost:8989/images/logo/logo.png"
+																											src="https://drive.google.com/uc?export=view&id=1ILbtQ9ZA2AqYckzl2Ol8WGVGdtWbfU5v"
 																											style="width: 110px; height: 60px;"
 																											width="110" />
 																									</a>
@@ -295,7 +295,7 @@
 											<tr>
 												<td>
 													<img alt="banner" border="0" class="banner" height="245"
-														src="https://localhost:8989/images/user/welcome.png"
+														src="https://drive.google.com/uc?export=view&id=1W0rvxh42CsLDif4zyO1ZhYaWsvbgipM3"
 														style="width: auto;height: auto;" width="600">
 												</td>
 											</tr>
@@ -314,14 +314,15 @@
 																					style="font-family:Lato, Arial, sans-serif, Trebuchet MS; font-size:16px; line-height:35px;">
 																					Hii, $[[USER_NAME]]
 																			</tr>
-																				
+
 																			<tr>
 																				<td
 																					style="font-family:Lato, Arial, sans-serif, Trebuchet MS; font-size:26px; line-height:32px; text-align:center; font-weight:700;">
 																					<br>
 																					Welcome to <span
 																						style="color:#2CAAFE;">Restro
-																						Menu Crafter</span></td>
+																						Menu Crafter</span>
+																				</td>
 																			</tr>
 																			<tr>
 																				<td height="12">&nbsp;</td>
@@ -348,19 +349,19 @@
 																						cellspacing="0" width="180">
 																						<tbody>
 																							<tr>
-																								<td align="center"
+																								<button align="center"
 																									bgcolor="#ffffff"
 																									class="cta1"
 																									height="40"
-																									style="border-radius:2px; -moz-border-radius:2px; -webkit-border-radius:2px; border-top:1px solid #2CAAFE; border-left:1px solid #2CAAFE; border-bottom:1px solid #2CAAFE; border-right:1px solid #2CAAFE;"
+																									style="border-radius:8px; -moz-border-radius:8px; -webkit-border-radius:8px; border:1px solid #2CAAFE; background-color: #2CAAFE;"
 																									width="180">
-																									<a href="https://localhost:8989/"
+																									<a href="$[[SITE_URL]]"
 																										style="font-family:Lato, Arial, sans-serif, Trebuchet MS; font-size:14px; line-height:38px; color:#2CAAFE; text-align: center; text-decoration: none !important; padding-bottom:1px; width:100%; font-weight:bold; display:inline-block"
 																										target="_blank"><span
-																											style="color: #2CAAFE">Explore
+																											style="color: white">Explore
 																											our
 																											Templates</span></a>
-																								</td>
+																								</button>
 																							</tr>
 																						</tbody>
 																					</table>
@@ -398,7 +399,7 @@
 																	style="font-family:Helvetica, Arial, sans-serif, Trebuchet MS; font-size:12px; line-height:18px; color:#616161; text-align: center;">
 																	<em>You&rsquo;re receiving this email because
 																		you&rsquo;ve registered on <a
-																			href="https://localhost:8989/"
+																			href="$[[SITE_URL]]"
 																			style="color:#616161; text-decoration:underline;"
 																			target="_blank">Restro Menu
 																			Crafter</a>.<br />

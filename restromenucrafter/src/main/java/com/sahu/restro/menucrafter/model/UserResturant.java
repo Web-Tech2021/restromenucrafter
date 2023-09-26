@@ -17,8 +17,8 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @Entity
-@Table(name = "user_restro")
-public class UserRestro extends Auditable<Long> {
+@Table(name = "user_resturant")
+public class UserResturant extends Auditable<Long> {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,8 +26,8 @@ public class UserRestro extends Auditable<Long> {
 	private Boolean active;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "restro_id")
-	private Restro restro;
+	@JoinColumn(name = "resturant_id")
+	private Resturant resturant;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")

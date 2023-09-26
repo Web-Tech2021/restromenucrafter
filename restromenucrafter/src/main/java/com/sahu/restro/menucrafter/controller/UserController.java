@@ -19,15 +19,17 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sahu.restro.menucrafter.constants.LVNConstants;
 import com.sahu.restro.menucrafter.constants.RestroMenuCrafterConstants;
+import com.sahu.restro.menucrafter.model.NewsLetterSubscriber;
 import com.sahu.restro.menucrafter.model.User;
 import com.sahu.restro.menucrafter.service.UserService;
 import com.sahu.restro.menucrafter.util.MailSenderUtil;
-import com.sahu.restro.menucrafter.util.URLUtil;
+import com.sahu.restro.menucrafter.util.NewsLetterSubscriberUtil;
+import com.sahu.restro.menucrafter.util.CommonsUtil;
 import com.sahu.restro.menucrafter.util.UserUtil;
 
 @Controller
 public class UserController {
-	
+
 	private Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
 	@Autowired
@@ -41,6 +43,12 @@ public class UserController {
 
 	@Autowired
 	private MailSenderUtil mailSenderUtil;
+	
+	@Autowired
+	private CommonsUtil commonsUtil;
+	
+	@Autowired
+	private NewsLetterSubscriberUtil subscriberUtil;
 
 	@GetMapping("/login")
 	public String showLoginPage() {
@@ -53,7 +61,8 @@ public class UserController {
 	}
 
 	@PostMapping("/registration")
-	public String registrationProcess(RedirectAttributes redirectAttributes, @ModelAttribute("user") User user) {
+	public String registrationProcess(RedirectAttributes redirectAttributes, @ModelAttribute("user") User user,
+			HttpServletRequest request) {
 		LOGGER.debug("Inside registrationProcess() method");
 		LOGGER.info("User data - " + user.getEmail());
 		if (user.getEmail() != null) {
@@ -66,7 +75,9 @@ public class UserController {
 			} else {
 				User registeredUser = userUtil.registerUser(user);
 				if (registeredUser != null) {
-					mailSenderUtil.sendWelcomeMail(user);
+					String siteURL = commonsUtil.getSiteURL(request);
+					mailSenderUtil.sendWelcomeMail(user, siteURL);
+					subscriberUtil.addRegisteredUserAsSubscriber(user);
 					redirectAttributes.addFlashAttribute(RestroMenuCrafterConstants.SUCCESS,
 							environment.getProperty("registration_success_msg"));
 				} else {
@@ -92,9 +103,9 @@ public class UserController {
 
 			if (optionalUser.isPresent()) {
 				User updatedUSer = userUtil.getTokenForReset(optionalUser.get());
-				String restURL = URLUtil.getSiteURL(request);
+				String siteURL = commonsUtil.getSiteURL(request);
 				try {
-					mailSenderUtil.sendMailForResetPassword(updatedUSer, restURL);
+					mailSenderUtil.sendMailForResetPassword(updatedUSer, siteURL);
 					redirectAttributes.addFlashAttribute(RestroMenuCrafterConstants.SUCCESS,
 							environment.getProperty("email_is_vaild_msg"));
 				} catch (MessagingException e) {

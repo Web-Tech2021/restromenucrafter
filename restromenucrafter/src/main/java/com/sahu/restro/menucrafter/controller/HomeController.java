@@ -17,7 +17,7 @@ public class HomeController {
 		if (customUserDetailsDTO != null) {
 			if (customUserDetailsDTO.hasPermission(PermissionConstants.GLOBAL_ADMINISTRATION))
 				return LVNConstants.REDIRECT_ADMIN_DASHBOARD;
-			else if (customUserDetailsDTO.hasPermission(PermissionConstants.VIEW_RESTRO_DASHBOARD)) 
+			else if (customUserDetailsDTO.hasPermission(PermissionConstants.VIEW_RESTURANT_DASHBOARD)) 
 				return LVNConstants.REDIRECT_RESTRO_DASHBOARD;
 		}
 	

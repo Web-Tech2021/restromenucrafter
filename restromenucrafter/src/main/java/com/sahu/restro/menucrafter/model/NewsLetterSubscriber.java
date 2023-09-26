@@ -20,7 +20,7 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @Entity
-public class NewsLetterSubscribers {
+public class NewsLetterSubscriber {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

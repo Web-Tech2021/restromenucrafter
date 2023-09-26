@@ -50,7 +50,7 @@ public class User extends Auditable<Long> {
 	private List<Role> roles;
 	
 	@ManyToMany
-	@JoinTable(name = "user_restro", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "restro_id"))
-	private List<Restro> restros;
+	@JoinTable(name = "user_resturant", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "resturant_id"))
+	private List<Resturant> resturants;
 	
 }

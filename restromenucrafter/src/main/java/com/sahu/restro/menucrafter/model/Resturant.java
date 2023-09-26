@@ -21,7 +21,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-public class Restro extends Auditable<Long> {
+public class Resturant extends Auditable<Long> {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,11 +34,11 @@ public class Restro extends Auditable<Long> {
 	@Enumerated(EnumType.STRING)
 	private Status status;
 
-	@ManyToMany(mappedBy = "restros")
+	@ManyToMany(mappedBy = "resturants")
 	private List<User> users;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "restro_type")
-	private AppParamValue restroType;
+	@JoinColumn(name = "resturant_type")
+	private AppParamValue resturantype;
 	
 }
