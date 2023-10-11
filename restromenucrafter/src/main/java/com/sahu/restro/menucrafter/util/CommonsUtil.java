@@ -13,7 +13,7 @@ public class CommonsUtil {
 	public String getSiteURL(HttpServletRequest request) {
 		return ServletUriComponentsBuilder.fromRequestUri(request).replacePath(null).build().toString();
 	}
-	
+
 	public String prepareTheMailBodyContent(String content, Map<String, String> replacements) {
 		StringBuffer contentBuffer = new StringBuffer(content);
 
@@ -25,4 +25,5 @@ public class CommonsUtil {
 
 		return contentBuffer.toString();
 	}
+
 }
