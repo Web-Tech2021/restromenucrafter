@@ -4,9 +4,8 @@ INSERT INTO `user` VALUES
 
 INSERT INTO `role` VALUES 
 	(1, now(),1,now(),1,true,'GLOBAL ADMIN'),
-    (2, now(),1,now(),1,true,'RESTRO ADMIN'),
-    (3,now(),1,now(),1,true,'USER');
-
+    (2, now(),1,now(),1,true,'USER'),
+    
 INSERT INTO `user_role` VALUES (1,1);
 
 INSERT INTO `permission` VALUES 
